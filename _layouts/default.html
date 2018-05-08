@@ -1,0 +1,83 @@
+---
+layout: compress
+---
+<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
+
+  {% include head.html %}
+
+  <body class="site">
+
+    {% if site.google_tag_manager %}
+
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager }}"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+
+    {% endif %}
+
+    {% include header.html %}
+
+    <style>
+      html, body {
+    height: 100%;
+}
+      #canvas-holder{
+        overflow: hidden;
+        position: relative; 
+        width: inherit; 
+        height: 60%;
+      }
+        #main_canvas {
+          position: absolute;
+            height: 100%;
+            width: inherit;
+            z-index: -10;
+        }
+        #top_div2 {
+          position: absolute;
+          height: 100%;
+          width: 50%;
+          z-index: 0;  
+          background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */        
+        }
+        #top_div {
+          opacity: 0.7;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 0;
+          background: #004085;
+          background: -moz-linear-gradient(-45deg, #004085 0%, #ca44eb 100%);
+          background: -webkit-gradient(left top, right bottom, color-stop(0%, #004085), color-stop(100%, #ca44eb));
+          background: -webkit-linear-gradient(-45deg, #004085 0%, #ca44eb 100%);
+          background: -o-linear-gradient(-45deg, #004085 0%, #ca44eb 100%);
+          background: -ms-linear-gradient(-45deg, #004085 0%, #ca44eb 100%);
+          background: linear-gradient(135deg, #004085 0%, #ca44eb 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004085', endColorstr='#ca44eb', GradientType=1);
+      }
+    </style>
+    <div id='canvas-holder'>
+        <div class="hero__wrap">
+            <h1 class="hero__title">Andrey Kudryavtsev</h1>
+            <p class="hero__meta">Postdoctoral researcher at FEMTO-ST / AS2M</p>
+          </div>
+        <div id='top_div2'></div>
+        <div id='top_div'></div>
+        <canvas id='main-canvas'></canvas>
+    </div>  
+    <!-- <div class="hero lazyload" data-bg="{{site.url}}/assets/img/posts/sleek_lg.jpg"> -->
+
+    <!-- </div> -->
+
+    <script src="{{site.url}}/assets/js/three.min.js"></script>
+    <script src="{{site.url}}/assets/js/background3d.js"></script>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
